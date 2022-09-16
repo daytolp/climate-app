@@ -28,6 +28,14 @@ Ruta de consumo de servicios:
 http://localhost:8080/api/check-weather?city=London
 http://localhost:8080/api/check-weather-top
 
+Otra manera de ejecutar la aplicación de forma rápida es: 
+- Abrir la terminal en la raíz del proyecto
+- Ejecutar  el comando mvn clean
+- Ejecutar el comando mvn install
+- Ejecutar el comando java -jar ./target/clima-app-0.0.1-SNAPSHOT.jar
+- Nota: si llega a varíar el nombre del jar  (clima-app-0.0.1-SNAPSHOT.jar) que genera al compilarse con el comando mvn install, cambiarlo en el comando de ejcucipon del jar.
+- Para salirse de la ejecución de la aplicación en la terminal presionar las teclas CTRL + c
+
 Nota: si deseas conocer más sobre openweathermap, se recomienda visitar la api para ver su funcionamiento en el siguiente enlace: https://openweathermap.org/api
 Para hacer uso de la api se recomienda crear una cuenta de usuario y generar un key para usarlo en las peticiones que se realicen.
 
