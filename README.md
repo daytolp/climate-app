@@ -13,7 +13,6 @@ Pasos:
 - Abrir la terminal en una carpeta
 - Clonar el repositorio
 - Moverse a la ruta del proyecto
-- Moverse a la rama master con el comando git checkout master
 - Tener los cambios actualizados usando el comando git pull
 - Ejecutar  el comando mvn clean
 - Ejecutar el comando mvn install
