@@ -35,10 +35,12 @@ Otra manera de ejecutar la aplicación de forma rápida es:
 - Nota: si llega a varíar el nombre del jar  (clima-app-0.0.1-SNAPSHOT.jar) que genera al compilarse con el comando mvn install, cambiarlo en el comando de ejcucipon del jar.
 - Para salirse de la ejecución de la aplicación en la terminal presionar las teclas CTRL + c
 
-Para abrir la consola de H2 usar esta ruta en el navegador
+Para abrir la consola de H2 es necesario tener la aplicación ejecutandose y usar esta ruta en el navegador
 http://localhost:8080/h2-console
 usuario: sasa
 password: sasa
+
+
 
 Nota: si deseas conocer más sobre openweathermap, se recomienda visitar la api para ver su funcionamiento en el siguiente enlace: https://openweathermap.org/api
 Para hacer uso de la api se recomienda crear una cuenta de usuario y generar un key para usarlo en las peticiones que se realicen.
