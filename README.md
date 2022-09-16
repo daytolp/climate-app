@@ -38,8 +38,11 @@ Otra manera de ejecutar la aplicación de forma rápida es:
 Para abrir la consola de H2 es necesario tener la aplicación ejecutandose y usar esta ruta en el navegador
 http://localhost:8080/h2-console
 driver class: org.h2.Driver
+
 jdbc url: jdbc:h2:mem:testdb
+
 usuario: sasa
+
 password: sasa
 
 
