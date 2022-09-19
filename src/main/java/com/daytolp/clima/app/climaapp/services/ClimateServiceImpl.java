@@ -1,9 +1,7 @@
 package com.daytolp.clima.app.climaapp.services;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -50,32 +48,30 @@ public class ClimateServiceImpl implements ClimateService{
 	@Transactional
 	public Climate getClimateByCity(String city) throws JsonMappingException, JsonProcessingException {
 		String namecity = city.trim();
-		Optional<Climate> climateDBOpt = climateRepository.findByName(namecity);
-		if (!climateDBOpt.isPresent()) {
-			RestTemplate restTemplate = new RestTemplate();
-			ResponseEntity<Climate> response = restTemplate.getForEntity(this.uri + namecity + this.key, Climate.class);
-			
-			cloudsRepository.save(response.getBody().getClouds());
-			coordRepository.save(response.getBody().getCoord());
-			mainRepository.save(response.getBody().getMain());
-			windRepository.save(response.getBody().getWind());
-			sysRepository.save(response.getBody().getSys());
-					
-			Climate climate = response.getBody();
-			if (climateRepository.findByPetitionNumber().isPresent()) climate.setPetitionNumber(climateRepository.findByPetitionNumber().get() + 1);
-			else climate.setPetitionNumber(1);
-			climate = climateRepository.save(climate);
-			
-			List<Weather> weathers = response.getBody().getWeather();
-			for (Weather weather : weathers) {
-				weather.setClimate(climate);
-			}
-			
-			weatherRepository.saveAll(weathers);
-			return climate;
+
+		RestTemplate restTemplate = new RestTemplate();
+		ResponseEntity<Climate> response = restTemplate.getForEntity(this.uri + namecity + this.key, Climate.class);
+
+		cloudsRepository.save(response.getBody().getClouds());
+		coordRepository.save(response.getBody().getCoord());
+		mainRepository.save(response.getBody().getMain());
+		windRepository.save(response.getBody().getWind());
+		sysRepository.save(response.getBody().getSys());
+
+		Climate climate = response.getBody();
+		if (climateRepository.findByPetitionNumber().isPresent())
+			climate.setPetitionNumber(climateRepository.findByPetitionNumber().get() + 1);
+		else
+			climate.setPetitionNumber(1);
+		climate = climateRepository.save(climate);
+
+		List<Weather> weathers = response.getBody().getWeather();
+		for (Weather weather : weathers) {
+			weather.setClimate(climate);
 		}
 	
-		return climateDBOpt.get();
+		weatherRepository.saveAll(weathers);
+		return climate;
 	}
 
 	@Override
