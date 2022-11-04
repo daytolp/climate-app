@@ -49,4 +49,4 @@ password: sasa
 
 Nota: si deseas conocer más sobre openweathermap, se recomienda visitar la api para ver su funcionamiento en el siguiente enlace: https://openweathermap.org/api
 Para hacer uso de la api se recomienda crear una cuenta de usuario y generar un key para usarlo en las peticiones que se realicen.
-
+## ejercicios con github descktop
